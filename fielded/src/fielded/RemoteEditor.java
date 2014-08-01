@@ -471,7 +471,7 @@ public class RemoteEditor extends Box {
 			String JSCommands = p.getJSONObject("allJSCommands").toString();
 			HashMap<String, String> JSMap = new HashMap<>();
 			HashMap<Pair<String, String>, Runnable> mergemap = new HashMap<>();
-
+			//set up a translator to help send javascript the right stuff
 			LinkedHashMap<String, String> hotkeyTranslator = new LinkedHashMap<>();
 			hotkeyTranslator.put("Autocomplete","Autocomplete()");
 			hotkeyTranslator.put("Commands", "Commands()");
@@ -482,6 +482,7 @@ public class RemoteEditor extends Box {
 			hotkeyTranslator.put("Run Begin", "Run_Begin()");
 			hotkeyTranslator.put("Run End", "Run_End()");
 			hotkeyTranslator.put("Run Selection", "Run_Selection()");
+
 
 
 			for (String entry : JSCommands.substring(1, JSCommands.length()-1).replace("\"","").split(",") ) {
@@ -572,7 +573,9 @@ public class RemoteEditor extends Box {
 										while ((contents.charAt(i)) != '\n') ++i;
 										readCommand.setLength(0);
 									}
-
+									//publish to the codemirror
+									String jscode="\"" + altWas + "\": " + hotkeyTranslator.get(currCommand.getKey().first) + ";}";
+									sendJavaScript(jscode);
 									//Replace the old command in contents with the new one or create a new command
 									if (commandBegin > -1) {
 										contents.delete(commandBegin, commandEnd);

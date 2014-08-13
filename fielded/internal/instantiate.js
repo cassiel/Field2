@@ -236,6 +236,9 @@ extraKeys = {
     },
     "Ctrl-I": function (cm) {
         Import();
+    },
+    "Ctrl-E": function (cm) {
+    		addSlider();
     }
 }
 

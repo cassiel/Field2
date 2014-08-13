@@ -26,6 +26,8 @@ LazyLoad.js("/field/filesystem/postal.min.js")
 LazyLoad.css("/field/filesystem/field-codemirror.css")
 LazyLoad.js("/field/filesystem/farbtastic/farbtastic.js")
 LazyLoad.css("/field/filesystem/farbtastic/farbtastic.css")
+LazyLoad.js("/field/filesystem/slider/right-slider-src.js")
+LazyLoad.css("/field/filesystem/slider/right-slider-src.css")
 
 //LazyLoad.css("/field/filesystem/codemirror-4.4/addon/dialog/dialog.css")
 LazyLoad.css("/field/filesystem/codemirror-4.4/addon/hint/show-hint.css")
